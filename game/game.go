@@ -6,6 +6,7 @@ import (
 )
 
 var DifficultLevel [3]string = [3]string{"Easy", "Medium", "Hard"}
+var CountOfChances [3]int = [3]int{10, 5, 3}
 var EndOfGame bool = false
 
 func RandomNumber() int {
@@ -15,6 +16,7 @@ func RandomNumber() int {
 func HelloMessage() {
 	var helloMessage = "Welcome to the Number Guessing Game! \n I'm thinking of a number between 1 and 100. \n You have 5 chances to guess the correct number."
 	fmt.Println(helloMessage)
+	fmt.Println(" ")
 }
 func ChooseDifLevel() uint8 {
 	fmt.Print("Enter your choice: ")
@@ -27,7 +29,7 @@ func SelectDifLevelMesage() {
 	fmt.Println(chooseMessage)
 }
 func StartTheGame(dufficultylevel uint8) {
-	fmt.Printf("Great! You have selected the %s difficulty level.\n Let's start the game!", DifficultLevel[dufficultylevel-1])
+	fmt.Printf("Great! You have selected the %s difficulty level.\n Let's start the game! \n", DifficultLevel[dufficultylevel-1])
 }
 func ChoosingNumber() int {
 	var chosenNumber int
@@ -41,10 +43,10 @@ func Help(chosenNumber, randomNumber, step int) {
 		EndOfGame = true
 		return
 	} else if chosenNumber > randomNumber {
-		fmt.Printf("Incorrect! The number is less than %d.", chosenNumber)
+		fmt.Printf("Incorrect! The number is less than %d. \n", chosenNumber)
 		return
 	} else {
-		fmt.Printf("Incorrect! The number is greater than %d.", chosenNumber)
+		fmt.Printf("Incorrect! The number is greater than %d. \n", chosenNumber)
 		return
 	}
 }

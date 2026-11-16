@@ -3,6 +3,7 @@ package game
 import "fmt"
 
 func Session() {
+	var EndOfGame bool = false
 	HelloMessage()
 	SelectDifLevelMesage()
 	chosenLevel := ChooseDifLevel()
@@ -10,7 +11,7 @@ func Session() {
 	randomNumber := RandomNumber()
 	for i := 0; i < int(CountOfChances[chosenLevel-1]); i++ {
 		currentNumber := ChoosingNumber()
-		Help(currentNumber, randomNumber, i+1)
+		Help(currentNumber, randomNumber, i+1, &EndOfGame)
 	}
 	if EndOfGame == false {
 		fmt.Println("You lost! Random number was", randomNumber)

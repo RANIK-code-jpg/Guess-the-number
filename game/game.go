@@ -7,7 +7,6 @@ import (
 
 var DifficultLevel [3]string = [3]string{"Easy", "Medium", "Hard"}
 var CountOfChances [3]int = [3]int{10, 5, 3}
-var EndOfGame bool = false
 
 func RandomNumber() int {
 	return rand.Intn(101) + 1
@@ -45,10 +44,10 @@ func ChoosingNumber() int {
 	fmt.Scan(&chosenNumber)
 	return chosenNumber
 }
-func Help(chosenNumber, randomNumber, step int) {
+func Help(chosenNumber, randomNumber, step int, endOfGame *bool) {
 	if chosenNumber == randomNumber {
 		fmt.Printf("Congratulations! You guessed the correct number in %d attempts.", step)
-		EndOfGame = true
+		*endOfGame = true
 		return
 	} else if chosenNumber > randomNumber {
 		fmt.Printf("Incorrect! The number is less than %d. \n", chosenNumber)

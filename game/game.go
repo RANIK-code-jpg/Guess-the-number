@@ -9,7 +9,7 @@ var DifficultLevel [3]string = [3]string{"Easy", "Medium", "Hard"}
 var CountOfChances [3]int = [3]int{10, 5, 3}
 
 func RandomNumber() int {
-	return rand.Intn(101) + 1
+	return rand.Intn(100) + 1
 }
 
 func HelloMessage() {

@@ -18,3 +18,28 @@ func Session() {
 	}
 	return
 }
+func NewGame() int {
+	var pressToContinue int
+	fmt.Println("Press 0 to end the game or 1 to play again")
+	fmt.Scan(&pressToContinue)
+	for {
+		if pressToContinue != 0 && pressToContinue != 1 {
+			fmt.Println("Chose 0 to end the game or 1 to play again")
+			fmt.Scan(&pressToContinue)
+		} else {
+			break
+		}
+	}
+	return pressToContinue
+}
+
+func AllGameSession() {
+	for {
+		Session()
+		passed := NewGame()
+		if passed == 0 {
+			fmt.Println("Good Bye!")
+			break
+		}
+	}
+}

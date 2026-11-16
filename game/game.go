@@ -10,11 +10,11 @@ var CountOfChances [3]int = [3]int{10, 5, 3}
 var EndOfGame bool = false
 
 func RandomNumber() int {
-	return rand.Intn(101)
+	return rand.Intn(101) + 1
 }
 
 func HelloMessage() {
-	var helloMessage = "Welcome to the Number Guessing Game! \n I'm thinking of a number between 1 and 100. \n You have 5 chances to guess the correct number."
+	var helloMessage = "Welcome to the Number Guessing Game! \n I'm thinking of a number between 1 and 100."
 	fmt.Println(helloMessage)
 	fmt.Println(" ")
 }
@@ -22,6 +22,14 @@ func ChooseDifLevel() uint8 {
 	fmt.Print("Enter your choice: ")
 	var difficultyLevel uint8
 	fmt.Scan(&difficultyLevel)
+	for {
+		if difficultyLevel <= 3 && difficultyLevel > 0 {
+			break
+		} else {
+			fmt.Println("Choose the correct diffiult level \n Preess 1, 2 or 3: ")
+			fmt.Scan(&difficultyLevel)
+		}
+	}
 	return difficultyLevel
 }
 func SelectDifLevelMesage() {
@@ -29,7 +37,7 @@ func SelectDifLevelMesage() {
 	fmt.Println(chooseMessage)
 }
 func StartTheGame(dufficultylevel uint8) {
-	fmt.Printf("Great! You have selected the %s difficulty level.\n Let's start the game! \n", DifficultLevel[dufficultylevel-1])
+	fmt.Printf("Great! You have selected the %s difficulty level.\n You have %d chances to guess the correct number. \n Let's start the game! \n", DifficultLevel[dufficultylevel-1], CountOfChances[dufficultylevel-1])
 }
 func ChoosingNumber() int {
 	var chosenNumber int
